@@ -10,4 +10,4 @@ export function airlineByPageSlug(slug: string): Airline | undefined {
 }
 
 // "Southwest Airlines" -> "Southwest"
-export const shortName = (a: Airline) => a.name.replace(/ Airlines?$/, "");
+export const shortName = (a: Airline) => a.name.replace(/ (Airlines?|Air Lines)$/, "");

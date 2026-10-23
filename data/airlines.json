@@ -1,5 +1,91 @@
 [
   {
+    "slug": "american",
+    "name": "American Airlines",
+    "in_cabin_allowed": true,
+    "in_cabin_fee_usd": 150,
+    "fee_basis": "per_direction",
+    "fee_per": "carrier",
+    "max_carrier_hard_in": {
+      "l": 16,
+      "w": 12,
+      "h": 8
+    },
+    "max_carrier_soft_in": {
+      "l": 18,
+      "w": 11,
+      "h": 11
+    },
+    "max_weight_lbs": null,
+    "pets_per_carrier": null,
+    "pets_per_passenger": 1,
+    "cargo_available": true,
+    "cargo_notes": "Checked pets are only for active-duty U.S. military and State Department Foreign Service staff on orders. Other pets can be shipped through American Airlines Cargo or American PetEmbark.",
+    "species_allowed": [
+      "dog",
+      "cat"
+    ],
+    "breed_restrictions": null,
+    "international_notes": "No carry-on pets to or from Hawaii, Jamaica, Argentina, Brazil, Chile, Colombia or Uruguay, or on trans-Atlantic and trans-Pacific flights. Carry-on pets are allowed within the 48 states and to or from Alaska, Canada, Mexico, Puerto Rico, St. Croix and St. Thomas. A stopover or connection of 4 hours or more is charged as a separate segment.",
+    "source_url": "https://www.aa.com/web/i18n/travel-info/special-assistance/pets.html",
+    "last_checked": "2026-10-23",
+    "verification": {
+      "confirmed_on_official_page": [
+        "in_cabin_fee_usd",
+        "fee_basis",
+        "fee_per",
+        "max_carrier_hard_in",
+        "max_carrier_soft_in",
+        "pets_per_passenger",
+        "cargo_available",
+        "species_allowed",
+        "international_notes"
+      ],
+      "needs_official_check": [
+        "pets_per_carrier"
+      ],
+      "notes": "$150 per kennel, each way (per segment if a stopover or connection is 4+ hours). Soft-sided max 18 x 11 x 11 in on all flights. Hard-sided max is 19 x 13 x 9 in on American mainline but 16 x 12 x 8 in on American Eagle; the smaller Eagle size is stored so the fit check never passes a carrier that won't fit on some flights. No general weight limit; the A321T alone has a 20 lb pet + carrier limit. Pets per kennel not stated (null)."
+    }
+  },
+  {
+    "slug": "delta",
+    "name": "Delta Air Lines",
+    "in_cabin_allowed": true,
+    "in_cabin_fee_usd": 150,
+    "fee_basis": "per_direction",
+    "fee_per": "pet",
+    "max_carrier_hard_in": null,
+    "max_carrier_soft_in": null,
+    "max_weight_lbs": null,
+    "pets_per_carrier": 1,
+    "pets_per_passenger": 1,
+    "cargo_available": false,
+    "cargo_notes": "Until further notice, Delta only ships pets as cargo for active U.S. military and State Department Foreign Service staff with permanent change of station orders.",
+    "species_allowed": [
+      "dog",
+      "cat",
+      "household bird"
+    ],
+    "breed_restrictions": null,
+    "international_notes": "No pets on flights to Hawaii. No pets in the cabin to or from Australia, Barbados, Hong Kong, Iceland, Jamaica, New Zealand, South Africa, the UK or the UAE, and none originating in Brazil, Colombia or the Dominican Republic. The fee is $150 within the U.S., Canada, Puerto Rico and USVI, and $200 each way on international trips.",
+    "source_url": "https://www.delta.com/us/en/pet-travel/overview",
+    "last_checked": "2026-10-23",
+    "verification": {
+      "confirmed_on_official_page": [
+        "in_cabin_fee_usd",
+        "fee_basis",
+        "fee_per",
+        "pets_per_carrier",
+        "pets_per_passenger",
+        "cargo_available",
+        "species_allowed",
+        "international_notes"
+      ],
+      "needs_official_check": [],
+      "notes": "$150 one way for tickets issued on or after April 8, 2025 (U.S., Canada, Puerto Rico, USVI); $200 international. Delta sets no single maximum kennel size because it depends on the aircraft's under-seat space; it recommends a soft-sided kennel of 18 x 11 x 11 in, so both carrier limits are null. Two same-breed pets aged 8 weeks to 6 months may share a kennel and pay one fee. No weight limit stated."
+    }
+  },
+  {
     "slug": "frontier",
     "name": "Frontier Airlines",
     "in_cabin_allowed": true,
@@ -47,6 +133,55 @@
       ],
       "needs_official_check": [],
       "notes": "Fee ($149 per pet, per direction, non-refundable) is from flyfrontier.com/optional-services. Carrier sizes, 1 pet per container, 1 pet per passenger, species and the international rule are from the Family & Pets page and faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane. No weight limit is stated on any official page, so max_weight_lbs stays null."
+    }
+  },
+  {
+    "slug": "jetblue",
+    "name": "JetBlue",
+    "in_cabin_allowed": true,
+    "in_cabin_fee_usd": null,
+    "fee_basis": null,
+    "fee_per": null,
+    "max_carrier_hard_in": {
+      "l": 17,
+      "w": 12.5,
+      "h": 8.5
+    },
+    "max_carrier_soft_in": {
+      "l": 17,
+      "w": 12.5,
+      "h": 8.5
+    },
+    "max_weight_lbs": null,
+    "pets_per_carrier": 1,
+    "pets_per_passenger": 2,
+    "cargo_available": false,
+    "cargo_notes": "JetBlue does not accommodate large dogs. Pets fly in the cabin only.",
+    "species_allowed": [
+      "dog",
+      "cat"
+    ],
+    "breed_restrictions": null,
+    "international_notes": "JetBlue accepts pets on all domestic flights. For other destinations you must check the import rules yourself; Puerto Rico and the U.S. Virgin Islands need vaccination documents.",
+    "source_url": "https://www.jetblue.com/help/traveling-with-pets",
+    "last_checked": "2026-10-23",
+    "verification": {
+      "confirmed_on_official_page": [
+        "max_carrier_hard_in",
+        "max_carrier_soft_in",
+        "pets_per_carrier",
+        "pets_per_passenger",
+        "species_allowed",
+        "international_notes"
+      ],
+      "needs_official_check": [
+        "in_cabin_fee_usd",
+        "fee_basis",
+        "fee_per",
+        "max_weight_lbs",
+        "cargo_available"
+      ],
+      "notes": "Carrier max 17 x 12.5 x 8.5 in (not split by hard/soft), one pet per carrier, up to two pets per traveler (the second needs its own seat and pet fee). The help page does not state the fee amount, and the contract of carriage blocks automated access, so the fee is null. A 20 lb weight limit appears only in third-party guides, so it is null."
     }
   },
   {

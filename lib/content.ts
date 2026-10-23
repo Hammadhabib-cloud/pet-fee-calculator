@@ -40,9 +40,10 @@ function weightText(a: Airline): string {
 }
 
 function petsText(a: Airline): string {
-  const perCarrier = a.pets_per_carrier ?? 1;
+  const perCarrier = a.pets_per_carrier;
   const perTraveler = a.pets_per_passenger ?? 1;
   const carriers = `${perTraveler} carrier${perTraveler > 1 ? "s" : ""} per traveler`;
+  if (perCarrier == null) return `You can bring ${carriers}. ${shortName(a)} doesn't say how many pets can share a carrier, so check with the airline.`;
   return perCarrier > 1
     ? `You can bring ${carriers}, and up to ${perCarrier} pets can share one carrier.`
     : `You can bring ${carriers}, with ${perCarrier} pet per carrier.`;
@@ -71,7 +72,7 @@ export function summary(a: Airline): string[] {
   );
   p.push(carrierText(a));
   p.push(`${petsText(a)} ${weightText(a)}`);
-  p.push(a.cargo_available ? `${n} also carries pets as cargo.` : `${n} does not fly pets in the cargo hold, so large dogs that can't fit under the seat can't travel with this airline.`);
+  p.push(a.cargo_available ? `Larger pets have a cargo option. ${a.cargo_notes ?? ""}`.trim() : `${n} does not fly pets in the cargo hold, so large dogs that can't fit under the seat can't travel with this airline.`);
   return p;
 }
 
@@ -138,7 +139,7 @@ export function homeFaqs(all: Airline[]): { q: string; a: string }[] {
       q: "Can my dog fly in cargo instead of the cabin?",
       a: noCargo.length === all.length
         ? `Not on the airlines we track. ${listNames(noCargo)} only fly pets in the cabin, so your dog has to fit in a carrier under the seat.`
-        : `Some airlines offer cargo for larger dogs. ${listNames(noCargo)} do not, and only fly pets in the cabin.`,
+        : `Only some airlines do. ${listNames(all.filter((a) => a.cargo_available).map(shortName))} offer${all.filter((a) => a.cargo_available).length === 1 ? "s" : ""} a cargo option for larger pets. ${listNames(noCargo)} only fly pets in the cabin (or limit cargo to military and diplomatic moves).`,
     },
     {
       q: "Is there a weight limit for pets in the cabin?",

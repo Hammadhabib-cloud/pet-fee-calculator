@@ -164,7 +164,7 @@ export default function Calculator({ airlines, initialSlug }: { airlines: Airlin
         aria-hidden={cardVisible}
         tabIndex={cardVisible ? -1 : 0}
       >
-        <span className="text-sm font-medium text-brand-100">Total on {airline.name.replace(/ Airlines?$/, "")}</span>
+        <span className="text-sm font-medium text-brand-100">Total on {airline.name.replace(/ (Airlines?|Air Lines)$/, "")}</span>
         <span className="flex items-center gap-2 text-xl font-extrabold">
           {result.fee.status === "confirmed" ? formatUsd(result.fee.total) : "Check with airline"}
           <ArrowRightIcon className="h-5 w-5 rotate-90" />
@@ -240,7 +240,7 @@ function breakdown(r: CalcResult): string | null {
 function ResultCard({ result: r, alternatives, pets, ref }: { result: CalcResult; alternatives: CalcResult[]; pets: number; ref: React.Ref<HTMLElement> }) {
   const a = r.airline;
   const fit = r.carrierFit;
-  const short = a.name.replace(/ Airlines?$/, "");
+  const short = a.name.replace(/ (Airlines?|Air Lines)$/, "");
   return (
     <section ref={ref} id="result" aria-live="polite" aria-label="Your result" className="scroll-mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-900/5">
       <div className="bg-brand-800 px-5 pb-6 pt-5 text-white sm:px-7 sm:pt-6">

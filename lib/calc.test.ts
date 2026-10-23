@@ -67,3 +67,12 @@ test("oversize reports which dimension is too big and by how much", () => {
     { dimension: "height", by: 0.5, actual: 10.5, max: 10 },
   ]);
 });
+
+test("American charges per kennel each way; Delta has no fixed carrier limit", () => {
+  const aa = calculate(get("american"), { ...base, tripType: "round_trip", segments: 2 });
+  assert.equal(aa.fee.status === "confirmed" && aa.fee.total, 300);
+  const dl = calculate(get("delta"), { ...base, carrier: { l: 18, w: 11, h: 11 } });
+  assert.equal(dl.fee.status === "confirmed" && dl.fee.total, 150);
+  assert.equal(dl.carrierFit.status, "unknown");
+  assert.equal(calculate(get("jetblue"), base).fee.status, "unconfirmed");
+});

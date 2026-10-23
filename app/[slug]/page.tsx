@@ -49,7 +49,11 @@ export default async function AirlinePage({ params }: Props) {
   if (!a) notFound();
   const n = shortName(a);
   const faqList = faqs(a);
-  const others = airlines.filter((x) => x.slug !== a.slug);
+  // Up to three related airlines, cheapest confirmed fees first.
+  const others = airlines
+    .filter((x) => x.slug !== a.slug)
+    .sort((x, y) => (x.in_cabin_fee_usd ?? Infinity) - (y.in_cabin_fee_usd ?? Infinity))
+    .slice(0, 3);
   const size = a.max_carrier_soft_in ?? a.max_carrier_hard_in;
 
   return (
